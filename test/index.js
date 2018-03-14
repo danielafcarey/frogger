@@ -1,6 +1,6 @@
-// on page load, a new Game is started
+// ✅ on page load, a new Game is started
 
-// Game will create a new frog
+// ✅ Game will create a new frog
 // Game will create 10 lanes of obstacles
 // Game over if Frog loses 3 lives
 // When game is over, gameover screen is shown
