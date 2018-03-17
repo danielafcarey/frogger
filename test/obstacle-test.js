@@ -30,7 +30,7 @@ describe('Obstacle', function() {
     assert.isFunction(obstacle.drawObstacle)
   })
 
-  it('can moveObstacle right or left along the x-axis', function() {
+  it('can move the Obstacle right or left along the x-axis', function() {
     var obstacle = new Obstacle();
 
     obstacle.x = 10;
@@ -54,9 +54,9 @@ describe('Obstacle', function() {
   });
 
 
-  it('restarts on the right side of canvas when it reaches the left boundary', function() {
+  it('restarts on the right side of canvas when it exits the left boundary', function() {
     var obstacle = new Obstacle();
-    obstacle.x = 0;
+    obstacle.x = 1 - obstacle.width;
     obstacle.velocity = -1;
 
     obstacle.moveObstacle();
