@@ -1,19 +1,19 @@
 const assert = require('chai').assert;
-// const Obstacle = require('../lib/Obstacle.js');
+const Obstacle = require('../lib/Obstacle.js');
 const Car = require('../lib/Car.js');
 
 describe('Car', function() {
-  it('should instantiate a new Log', function() {
-    var car = new Car();
+  it('should instantiate a new Car', function() {
+    var car = new Car(0, 0, 75, 50, 1);
 
     assert.isObject(car);
   });
 
   it('inherits type, x, y, width, height, and velocity properties from the Obstacle class', function() {
-    var car = new Car();
+    var car = new Car(0, 0, 75, 50, 1);
 
     assert.isDefined(car.type);
-    assert.isNumber(car.x);
+    assert.equal(car.x, 50);
     assert.isNumber(car.y);
     assert.isNumber(car.width);
     assert.isNumber(car.height);
@@ -22,7 +22,7 @@ describe('Car', function() {
 
   it('inherits functions from the Obstacle class', function() {
     var car = new Car();
-
+    console.log(car.x)
     car.drawObstacle();
     car.moveObstacle();
     car.increaseSpeed();

@@ -128,4 +128,7 @@ describe('Frog', function() {
   it('should not gain points for backwards motion', function() {
     var frog = new Frog();
   })
+
+  it ('should not gain points for forword progress that is has previously reached', function()
+  )
 })
