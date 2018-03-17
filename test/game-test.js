@@ -1,25 +1,114 @@
-const assert = require ('chai').assert;
+const assert = require('chai').assert;
 const Game = require('../lib/Game.js');
 
 
 describe('Game', function() {
   it('should instantiate a new game', function() {
     var game = new Game();
+
     assert.isObject(game)
-  })
+  });
 
   it('should create a new frog', function() {
     var game = new Game();
-    assert.isObject(game.frogger)
-  })
 
-  it('allows the user to control the frog', function() {
-    var game = new Game();
-    assert.isFunction(game.controlFrog)
-  })
+    assert.isObject(game.frogger)
+  });
 
   it('can draw objects', function() {
     var game = new Game();
+
     assert.isFunction(game.drawObjects)
+  });
+
+  it('allows the user to control the frog', function() {
+    var game = new Game();
+
+    assert.isFunction(game.controlFrog)
+  });
+
+  it('allows the user to control the frog with the arrow keys', function() {
+    var game = new Game();
+    game.frogger.x = 0;
+
+    game.controlFrog(20, 200, 200);
+    assert.equal(game.frogger.x, 0);
+
+    game.controlFrog(39, 200, 200);
+    assert.equal(game.frogger.x, 50);
+  });
+
+  it('starts with three lives', function() {
+    var game = new Game();
+
+    assert.equal(game.lives, 3);
+  });
+
+  it('lose a life if there is a collision', function() {
+    var game = new Game();
+    game.lives = 3;
+
+    game.loseLife();
+    assert.equal(game.lives, 2);
+  });
+
+  it('game over if loses all three lives', function() {
+    var game = new Game();
+    game.lives = 1;
+
+    assert.equal(game.gameOver, false);
+    game.loseLife();
+    assert.equal(game.gameOver, true);
+  });
+
+  it('moves to next level when frog reaches the top', function() {
+    var game = new Game();
+    game.frogger.y = 50; //one jump away from top bar
+    game.level = 1;
+
+    game.controlFrog(38, 550, 700); //up keycode, random width/height
+    game.levelUp();
+
+    assert.equal(game.level, 2);
+    assert.equal(game.frogger.x, 550);
+  });
+
+  it('keeps score', function() {
+    var game = new Game();
+
+    assert.equal(game.score, 0);
+  });
+
+  it('gains 50 points for each new height reached', function() {
+    var game = new Game();
+    game.score = 0;
+
+    game.controlFrog(38, 200, 200); //up keycode, random width/height
+
+    assert.equal(game.score, 50);  
+  });
+
+  it('keeps track of score upon uplevel', function() {
+    var game = new Game();
+    game.score = 100;
+
+    game.frogger.y = 50; //one jump away from top bar
+    game.level = 1; 
+
+    game.controlFrog(38, 200, 200); //up keycode, random width/height (moveFrogUp)
+    game.levelUp();
+
+    assert.equal(game.level, 2);
+    assert.equal(game.score, 150); //received 50 more points for reaching top
   })
+
+  it('increases velocity of obstacles upon uplevel', function() {
+    var game = new Game();
+    game.obstacle.velocity = 1;
+
+    game.levelUp();
+
+    assert.equal(game.obstacle.velocity, 1.5);
+  });
+
 })
