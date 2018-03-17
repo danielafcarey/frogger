@@ -23,8 +23,7 @@ describe('Car', function() {
   it('inherits functions from the Obstacle class', function() {
     var car = new Car();
     console.log(car.x)
-    car.drawObstacle();
-    car.moveObstacle();
+    car.moveObstacles();
     car.increaseSpeed();
   });
 
