@@ -57,6 +57,34 @@ describe('Frog', function() {
     assert.equal(frog.y, 550)
   })
 
+  it('should not be able to move up if it is at the top of the screen', function() {
+    var frog = new Frog();
+    frog.y = 0;
+    frog.moveFrogUp();
+    assert.equal(frog.y, 0) 
+  });
+
+  it('should not be able to move left if it is on the left side of the screen', function() {
+    var frog = new Frog();
+    frog.x = 0;
+    frog.moveFrogLeft();
+    assert.equal(frog.x, 0) 
+  });
+
+  it('should not be able to move down if it is on the bottom of the screen', function() {
+    var frog = new Frog();
+    frog.y = 650;
+    frog.moveFrogDown(550, 700);
+    assert.equal(frog.y, 650) 
+  });
+
+  it('should not be able to move right if it is on the right side of the screen', function() {
+    var frog = new Frog();
+    frog.x = 500;
+    frog.moveFrogRight(550, 700);
+    assert.equal(frog.x, 500) 
+  });
+
   it('should start with three lives', function() {
     var frog = new Frog();
     assert.equal(frog.lives, 3)
