@@ -1,5 +1,4 @@
 const assert = require('chai').assert;
-// const Obstacle = require('../lib/Obstacle.js');
 const Log = require('../lib/Log.js');
 
 describe('Log', function() {
@@ -9,24 +8,35 @@ describe('Log', function() {
     assert.isObject(log);
   });
 
-  it('inherits type, x, y, width, height, and velocity properties from the Obstacle class', function() {
+  it('takes x, y, height, and velocity as parameters', function() {
+    var log = new Log(1, 2, 3, 4);
+
+    assert.equal(log.x, 1);
+    assert.equal(log.y, 2);
+    assert.equal(log.height, 50);
+    assert.equal(log.velocity, 4);
+  })
+
+  it('inherits height from the Obstacle class', function() {
     var log = new Log();
 
-    assert.isDefined(log.type);
-    assert.isNumber(log.x);
-    assert.isNumber(log.y);
-    assert.isNumber(log.width);
-    assert.isNumber(log.height);
-    assert.isNumber(log.velocity);
+    assert.equal(log.height, 50);
   });
 
   it('inherits functions from the Obstacle class', function() {
     var log = new Log();
 
-    log.drawObstacle();
-    log.moveObstacle();
+    log.moveObstacles();
     log.increaseSpeed();
   });
+
+  it('has a default type, width, and fillStyle', function() {
+    var log = new Log();
+
+    assert.equal(log.type, 'log');
+    assert.equal(log.width, 150);
+    assert.equal(log.fillStyle, 'brown');    
+  })
 
 
 

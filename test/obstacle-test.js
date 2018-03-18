@@ -8,26 +8,20 @@ describe('Obstacle', function() {
     assert.isObject(obstacle);
   });
 
-  it('has a default type', function() {
+  it('has a default x-value, y-value, width, height, and velocity', function() {
     var obstacle = new Obstacle();
 
-    assert.isDefined(obstacle.type);
-  });
-
-  it('has an integer as a default x and y value, width, height, and velocity', function() {
-    var obstacle = new Obstacle();
-
-    assert.isNumber(obstacle.x);
-    assert.isNumber(obstacle.y);
-    assert.isNumber(obstacle.width);
-    assert.isNumber(obstacle.height);
-    assert.isNumber(obstacle.velocity);
+    assert.equal(obstacle.x, 0);
+    assert.equal(obstacle.y, 0);
+    assert.equal(obstacle.width, 50);
+    assert.equal(obstacle.height, 50);
+    assert.equal(obstacle.velocity, 0);
   });
 
   it('should be able to draw the obstacle on the canvas', function() {
     var obstacle = new Obstacle();
 
-    assert.isFunction(obstacle.drawObstacle)
+    assert.isFunction(obstacle.drawSelf)
   })
 
   it('can move the Obstacle right or left along the x-axis', function() {
@@ -35,22 +29,22 @@ describe('Obstacle', function() {
 
     obstacle.x = 10;
     obstacle.velocity = 1;
-    obstacle.moveObstacle();
+    obstacle.moveObstacles();
     assert.equal(obstacle.x, 11);
 
     obstacle.velocity = -1;
-    obstacle.moveObstacle();
+    obstacle.moveObstacles();
     assert.equal(obstacle.x, 10);    
   });
 
   it('restarts on the left side of canvas when it reaches the right boundary', function() {
     var obstacle = new Obstacle();
-    obstacle.x = 550 - obstacle.width; //page width - width of obstacle;
+    obstacle.x = 549;
     obstacle.velocity = 1;
 
-    obstacle.moveObstacle();
+    obstacle.moveObstacles();
 
-    assert.equal(obstacle.x, 0);
+    assert.equal(obstacle.x, -50);
   });
 
 
@@ -59,7 +53,7 @@ describe('Obstacle', function() {
     obstacle.x = 1 - obstacle.width;
     obstacle.velocity = -1;
 
-    obstacle.moveObstacle();
+    obstacle.moveObstacles();
 
     assert.equal(obstacle.x, 550);
   });
