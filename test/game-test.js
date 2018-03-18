@@ -112,36 +112,4 @@ describe('Game', function() {
     assert.equal(game.obstacle.velocity, 1.5);
   });
 
-  it('should not be able to move the frog up if it is at the top of the screen', function() {
-    var game = new Game();
-    var frog = new Frog();
-    frog.y = 0;
-    frog.moveFrogUp();
-    assert.equal(frog.y, 0) 
-  });
-
-  it('should not be able to move the frog left if it is on the left side of the screen', function() {
-    var game = new Game();
-    var frog = new Frog();
-    frog.x = 0;
-    frog.moveFrogLeft();
-    assert.equal(frog.x, 0) 
-  });
-
-  it('should not be able to move the frog down if it is on the bottom of the screen', function() {
-    var game = new Game();
-    var frog = new Frog();
-    frog.y = 700;
-    frog.moveFrogDown();
-    assert.equal(frog.y, 700) 
-  });
-
-  it('should not be able to move the frog right if it is on the right side of the screen', function() {
-    var game = new Game();
-    var frog = new Frog();
-    frog.x = 550;
-    frog.moveFrogRight();
-    assert.equal(frog.x, 550) 
-  });
-
 })
