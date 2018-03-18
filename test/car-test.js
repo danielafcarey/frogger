@@ -1,31 +1,42 @@
 const assert = require('chai').assert;
-const Obstacle = require('../lib/Obstacle.js');
 const Car = require('../lib/Car.js');
 
 describe('Car', function() {
   it('should instantiate a new Car', function() {
-    var car = new Car(0, 0, 75, 50, 1);
+    var car = new Car();
 
     assert.isObject(car);
   });
 
-  it('inherits type, x, y, width, height, and velocity properties from the Obstacle class', function() {
-    var car = new Car(0, 0, 75, 50, 1);
+  it('takes x, y, height, and velocity as parameters', function() {
+    var car = new Car(1, 2, 3, 4);
 
-    assert.isDefined(car.type);
-    assert.equal(car.x, 50);
-    assert.isNumber(car.y);
-    assert.isNumber(car.width);
-    assert.isNumber(car.height);
-    assert.isNumber(car.velocity);
+    assert.equal(car.x, 1);
+    assert.equal(car.y, 2);
+    assert.equal(car.height, 50);
+    assert.equal(car.velocity, 4);
+  })
+
+  it('inherits height from the Obstacle class', function() {
+    var car = new Car();
+
+    assert.equal(car.height, 50);
   });
 
   it('inherits functions from the Obstacle class', function() {
     var car = new Car();
-    console.log(car.x)
+
     car.moveObstacles();
     car.increaseSpeed();
   });
+
+  it('has a default type, width, and fillStyle', function() {
+    var car = new Car();
+
+    assert.equal(car.type, 'car');
+    assert.equal(car.width, 50);
+    assert.equal(car.fillStyle, 'red');    
+  })
 
 
 
