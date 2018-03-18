@@ -54,10 +54,7 @@ describe('Game', function() {
   it('only checks for a collision on the road if the frog is on the road', function() {
     var game = new Game();
     game.frogger.x = 100;
-    game.frogger.y = 200;
-    game.obstaclesArray[0].x = 100;
-    game.obstaclesArray[0].y = 200;
-    game.frogger.lives = 3;
+    game.frogger.y = 500;
 
     game.animateObstacles();
     assert.equal(game.frogger.lives, 3);
@@ -65,13 +62,11 @@ describe('Game', function() {
 
   it('if collision on river, frog rides obstacle', function() {
     var game = new Game();
-    game.frogger.x = 100;
-    game.frogger.y = 400;
-    game.obstaclesArray[0].x = 100;
-    game.obstaclesArray[0].y = 400;
+    game.frogger.x = 330;
+    game.frogger.y = 200;
 
     game.animateObstacles();
-    assert.equal(game.frogger.x, game.frogger.x + game.obstaclesArray[0].velocity);
+    assert.isAbove(game.frogger.x, 330);
   })
 
 
@@ -95,16 +90,17 @@ describe('Game', function() {
     assert.equal(game.gameOver, true);
   });
 
-  it.skip('moves to next level when frog reaches the top', function() {
+  it('moves to next level when frog reaches the top', function() {
     var game = new Game();
-    game.frogger.y = 50; //one jump away from top bar
+    game.frogger.x = 174.5;
+    game.frogger.y = 50;
     game.level = 1;
 
     game.controlFrog(38, 550, 700); //up keycode, random width/height
-    game.levelUp();
+    game.animateObstacles();
 
     assert.equal(game.level, 2);
-    assert.equal(game.frogger.x, 550);
+    assert.equal(game.frogger.y, 600);
   });
 
   it('keeps score', function() {
@@ -136,13 +132,12 @@ describe('Game', function() {
     assert.equal(game.score, 150); //received 50 more points for reaching top
   })
 
-  it.skip('increases velocity of obstacles upon uplevel', function() {
+  it('increases velocity of obstacles upon uplevel', function() {
     var game = new Game();
-    game.obstacle.velocity = 1;
 
     game.levelUp();
 
-    assert.equal(game.obstacle.velocity, 1.5);
+    assert.equal(game.obstaclesArray[0].velocity, 2.5);
   });
 
 })
