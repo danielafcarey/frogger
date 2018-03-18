@@ -90,14 +90,6 @@ describe('Frog', function() {
     assert.equal(frog.lives, 3)
   })
 
-  it.skip('should die when it collides with an obstacle', function() {
-    var frog = new Frog();
-    var obstacle = new Obstacle();
-    frog.x = 150;
-    obstacle.x = 150;
-    assert.equal(frog.isAlive, false)
-  });
-
   it.skip('should gain ten points for forward progress', function() {
     var frog = new Frog();
     frog.y = 500;
