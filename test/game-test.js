@@ -39,19 +39,52 @@ describe('Game', function() {
     assert.equal(game.frogger.x, 50);
   });
 
-  it('starts with three lives', function() {
+  it('lose a life if there is a collision with a car or truck', function() {
     var game = new Game();
+    game.frogger.y = 400;
+    game.frogger.x = 100;
+    game.obstaclesArray[0].x = 100;
+    game.obstaclesArray[0].y = 400;
+    game.frogger.lives = 3;
 
-    assert.equal(game.lives, 3);
+    game.checkForRoadCollision();
+    assert.equal(game.frogger.lives, 2);
   });
 
-  it.skip('lose a life if there is a collision', function() {
+  it('only checks for a collision on the road if the frog is on the road', function() {
     var game = new Game();
-    game.lives = 3;
+    game.frogger.x = 100;
+    game.frogger.y = 200;
+    game.obstaclesArray[0].x = 100;
+    game.obstaclesArray[0].y = 200;
+    game.frogger.lives = 3;
 
-    game.loseLife();
-    assert.equal(game.lives, 2);
-  });
+    game.animateObstacles();
+    assert.equal(game.frogger.lives, 3);
+  })
+
+  it('if collision on river, frog rides obstacle', function() {
+    var game = new Game();
+    game.frogger.x = 100;
+    game.frogger.y = 400;
+    game.obstaclesArray[0].x = 100;
+    game.obstaclesArray[0].y = 400;
+
+    game.animateObstacles();
+    assert.equal(game.frogger.x, game.frogger.x + game.obstaclesArray[0].velocity);
+  })
+
+
+  it('only checks for a collision on the water if the frog is on the water', function() {
+    var game = new Game();
+    game.frogger.x = 100;
+    game.frogger.y = 400;
+    game.obstaclesArray[0].x = 100;
+    game.obstaclesArray[0].y = 400;
+
+    game.animateObstacles();
+    assert.equal(game.frogger.velocity, 0);
+  })
 
   it.skip('game over if loses all three lives', function() {
     var game = new Game();
