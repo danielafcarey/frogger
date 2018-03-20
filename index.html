@@ -3,9 +3,11 @@
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" type="text/css" href="lib/styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
   <title>Frogger</title>
 </head>
 <body>
+  <header>FROGGAME</header>
   <span id="background">
     <span id="grass"></span>
     <span id="river"></span>
@@ -18,6 +20,19 @@
           width="550"
           height="700">
   </canvas>
+  <span id="start-screen">
+    <p>Welcome to the FROGGAME</p>
+    <br />
+    <p>To play:</p>
+    <p>Move frog using the arrow keys.</p>
+    <p>Object is to safely move frog to its home in the grass at the top of the page.</p>
+    <p>Cross highway without getting run over and cross river without falling in.</p>
+    <br />
+    <p>Click New Game to begin</p>
+  </span>
+  <span class="hide" id="death"></span>
+  <span class="hide" id="level">Level 1</span>
+  <span class="hide" id="game-over"></span>
   <script src="main.bundle.js"></script>
 </body>
 </html>
