@@ -1,11 +1,16 @@
 body {
   margin: 0;
+  font-family: 'Press Start 2P', cursive;
+  background-color: black;
+  color: white;
+  text-align: center;
 }
 
-#canvas {
-  margin: auto;
-  display: block;
+header {
+  margin: 22px 0 10px 0;
+  font-size: xx-large;
 }
+
 
 #background {
   position: absolute;
@@ -35,7 +40,7 @@ body {
 
 #road {
   grid-area: 4/1/5/2;
-  background-color: black;
+  background-color: #343333;
 }
 
 #starting-sidewalk {
@@ -47,3 +52,39 @@ body {
   grid-area: 6/1/7/2;
   background-color: black;
 }
+
+#canvas {
+  margin: auto;
+  display: block;
+}
+
+#start-screen {
+  position: absolute;
+  top: 57px;
+  left: 0;
+  right: 0;
+  display: block;
+  width: 550px;
+  height: 700px;
+  margin: 0 auto;
+  padding-top: 80px;
+  background-color: black;
+  font-size: 23px;
+}
+
+#death {
+  
+}
+
+#level {
+  
+}
+
+#game-over {
+  
+}
+
+.hide {
+  display: none;
+}
+
