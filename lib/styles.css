@@ -58,33 +58,52 @@ header {
   display: block;
 }
 
-#start-screen {
+.start-screen {
   position: absolute;
   top: 57px;
   left: 0;
   right: 0;
   display: block;
   width: 550px;
-  height: 700px;
+  height: 600px;
   margin: 0 auto;
   padding-top: 80px;
   background-color: black;
   font-size: 23px;
 }
 
-#death {
+.death {
   
 }
 
-#level {
+.level {
   
 }
 
-#game-over {
+.game-over {
   
 }
 
 .hide {
   display: none;
+}
+
+button {
+  padding: 15px 15px 15px 20px;
+  background: black;
+  border: 2px solid green;
+  border-radius: 25px;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 20px;
+  color: white;
+}
+
+button:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+button:focus {
+  outline: none;
 }
 
