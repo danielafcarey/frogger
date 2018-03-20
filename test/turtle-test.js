@@ -8,13 +8,12 @@ describe('Turtle', function() {
     assert.isObject(turtle);
   });
 
-  it('takes x, y, height, and velocity as parameters', function() {
-    var turtle = new Turtle(1, 2, 3, 4);
+  it('takes x, y, and velocity as parameters', function() {
+    var turtle = new Turtle(1, 2, 3);
 
     assert.equal(turtle.x, 1);
     assert.equal(turtle.y, 2);
-    assert.equal(turtle.height, 50);
-    assert.equal(turtle.velocity, 4);
+    assert.equal(turtle.velocity, 3);
   })
 
   it('inherits height from the Obstacle class', function() {
@@ -30,12 +29,11 @@ describe('Turtle', function() {
     turtle.increaseSpeed();
   });
 
-  it('has a default type, width, and fillStyle', function() {
+  it('has a default type and width', function() {
     var turtle = new Turtle();
 
     assert.equal(turtle.type, 'turtle');
-    assert.equal(turtle.width, 50);
-    assert.equal(turtle.fillStyle, 'limegreen');    
+    assert.equal(turtle.width, 100);
   })
 
 

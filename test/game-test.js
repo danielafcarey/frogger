@@ -33,14 +33,17 @@ describe('Game', function() {
     game.frogger.x = 0;
 
     game.controlFrog(20, 200, 200);
+
     assert.equal(game.frogger.x, 0);
 
     game.controlFrog(39, 200, 200);
+
     assert.equal(game.frogger.x, 50);
   });
 
   it('lose a life if there is a collision with a car or truck', function() {
     var game = new Game();
+    game.showDeath = function() {};
     game.frogger.y = 400;
     game.frogger.x = 100;
     game.obstaclesArray[0].x = 100;
@@ -48,6 +51,7 @@ describe('Game', function() {
     game.frogger.lives = 3;
 
     game.checkForRoadCollision();
+
     assert.equal(game.frogger.lives, 2);
   });
 
@@ -57,6 +61,7 @@ describe('Game', function() {
     game.frogger.y = 500;
 
     game.animateObstacles();
+
     assert.equal(game.frogger.lives, 3);
   })
 
@@ -66,18 +71,21 @@ describe('Game', function() {
     game.frogger.y = 200;
 
     game.animateObstacles();
+
     assert.isAbove(game.frogger.x, 330);
   })
 
 
   it('only checks for a collision on the water if the frog is on the water', function() {
     var game = new Game();
+    game.showDeath = function() {};
     game.frogger.x = 100;
     game.frogger.y = 400;
     game.obstaclesArray[0].x = 100;
     game.obstaclesArray[0].y = 400;
 
     game.animateObstacles();
+
     assert.equal(game.frogger.velocity, 0);
   })
 
@@ -86,12 +94,15 @@ describe('Game', function() {
     game.lives = 1;
 
     assert.equal(game.gameOver, false);
+
     game.loseLife();
+
     assert.equal(game.gameOver, true);
   });
 
   it('moves to next level when frog reaches the top', function() {
     var game = new Game();
+    game.showLevelUp = function() {};
     game.frogger.x = 174.5;
     game.frogger.y = 50;
     game.level = 1;
@@ -134,6 +145,7 @@ describe('Game', function() {
 
   it('increases velocity of obstacles upon uplevel', function() {
     var game = new Game();
+    game.showLevelUp = function() {};
 
     game.levelUp();
 

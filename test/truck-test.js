@@ -8,13 +8,12 @@ describe('Truck', function() {
     assert.isObject(truck);
   });
 
-  it('takes x, y, height, and velocity as parameters', function() {
-    var truck = new Truck(1, 2, 3, 4);
+  it('takes x, y, and velocity as parameters', function() {
+    var truck = new Truck(1, 2, 3);
 
     assert.equal(truck.x, 1);
     assert.equal(truck.y, 2);
-    assert.equal(truck.height, 50);
-    assert.equal(truck.velocity, 4);
+    assert.equal(truck.velocity, 3);
   })
 
   it('inherits height from the Obstacle class', function() {
@@ -30,12 +29,11 @@ describe('Truck', function() {
     truck.increaseSpeed();
   });
 
-  it('has a default type, width, and fillStyle', function() {
+  it('has a default type and width', function() {
     var truck = new Truck();
 
     assert.equal(truck.type, 'truck');
-    assert.equal(truck.width, 100);
-    assert.equal(truck.fillStyle, 'cadetblue');    
+    assert.equal(truck.width, 150);
   })
 
 

@@ -8,13 +8,12 @@ describe('Log', function() {
     assert.isObject(log);
   });
 
-  it('takes x, y, height, and velocity as parameters', function() {
-    var log = new Log(1, 2, 3, 4);
+  it('takes x, y, and velocity as parameters', function() {
+    var log = new Log(1, 2, 3);
 
     assert.equal(log.x, 1);
     assert.equal(log.y, 2);
-    assert.equal(log.height, 50);
-    assert.equal(log.velocity, 4);
+    assert.equal(log.velocity, 3);
   })
 
   it('inherits height from the Obstacle class', function() {
@@ -30,12 +29,11 @@ describe('Log', function() {
     log.increaseSpeed();
   });
 
-  it('has a default type, width, and fillStyle', function() {
+  it('has a default type and width', function() {
     var log = new Log();
 
     assert.equal(log.type, 'log');
     assert.equal(log.width, 150);
-    assert.equal(log.fillStyle, 'brown');    
   })
 
 
