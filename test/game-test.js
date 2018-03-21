@@ -1,7 +1,5 @@
 const assert = require('chai').assert;
 const Game = require('../lib/Game.js');
-const Frog = require('../lib/Frog.js')
-
 
 describe('Game', () => {
   it('should instantiate a new game', () => {
@@ -20,18 +18,19 @@ describe('Game', () => {
   it('should have default lane assignments', () => {
     const game = new Game();
 
-    assert.deepEqual(game.lanes[0], {height: 550, reached: false})
+    assert.deepEqual(game.lanes[0], {height: 550, reached: false, velocity: 2})
   });
 
   it('should create an array of obstacles', () => {
     const game = new Game();
 
-    assert.deepEqual(game.obstaclesArray[0], {"height": 50,
-                                              "type": "car2",
-                                              "velocity": 2,
-                                              "width": 50,
-                                              "x": 0,
-                                              "y": 550}); 
+    assert.deepEqual(game.obstaclesArray[0], {
+      "height": 50,
+      "type": "car2",
+      "velocity": 2,
+      "width": 50,
+      "x": 0,
+      "y": 550}); 
   });
 
   it('should create a new frog', () => {
@@ -54,6 +53,7 @@ describe('Game', () => {
 
   it('allows the user to control the frog with the arrow keys', () => {
     const game = new Game();
+
     game.frogger.x = 0;
 
     game.controlFrog(20, 550, 650);
@@ -67,6 +67,7 @@ describe('Game', () => {
 
   it('lose a life if there is a collision with a car or truck', () => {
     const game = new Game();
+
     game.showDeath = () => {};
     game.updateLivesDisplay = () => {};
     game.frogger.y = 400;
@@ -82,6 +83,7 @@ describe('Game', () => {
 
   it('only checks for a collision on the road if the frog is on the road', () => {
     const game = new Game();
+
     game.frogger.x = 100;
     game.frogger.y = 500;
 
@@ -92,6 +94,7 @@ describe('Game', () => {
 
   it('if collision on river, frog rides obstacle', () => {
     const game = new Game();
+
     game.frogger.x = 330;
     game.frogger.y = 200;
 
@@ -102,6 +105,7 @@ describe('Game', () => {
 
   it('only checks for a collision on the water if the frog is on the water', () => {
     const game = new Game();
+
     game.showDeath = () => {};
     game.updateLivesDisplay = () => {};
     game.frogger.x = 100;
@@ -116,6 +120,7 @@ describe('Game', () => {
 
   it('game over if loses all three lives', () => {
     const game = new Game();
+
     game.frogger.lives = 1;
     game.updateLivesDisplay = () => {};
     game.showDeath = () => {};
@@ -128,6 +133,7 @@ describe('Game', () => {
 
   it('moves to next level when frog reaches the top', () => {
     const game = new Game();
+
     game.showLevelUp = () => {};
     game.updateLevelDisplay = () => {};
     game.updateScoreDisplay = () => {};
@@ -142,6 +148,22 @@ describe('Game', () => {
     assert.equal(game.frogger.y, 600);
   });
 
+  it('should reset the frog to the starting point when the frog dies', () => {
+    const game = new Game();
+    
+    game.updateLivesDisplay = () => {};
+    game.showDeath = () => {};
+
+    game.frogger.x = 150;
+    game.frogger.y = 300;
+
+    game.loseLife();
+
+    assert.equal(game.frogger.x, 250)
+    assert.equal(game.frogger.y, 600)
+    assert.equal(game.frogger.direction, 'up')
+  })
+
   it('keeps score', () => {
     const game = new Game();
 
@@ -150,6 +172,7 @@ describe('Game', () => {
 
   it('gains 10 points for each new height reached', () => {
     const game = new Game();
+
     game.score = 0;
     game.updateScoreDisplay = () => {};
 
@@ -160,6 +183,7 @@ describe('Game', () => {
 
   it('keeps track of score upon uplevel', () => {
     const game = new Game();
+
     game.score = 100;
     game.level = 1;
     game.showLevelUp = () => {};
@@ -173,6 +197,7 @@ describe('Game', () => {
 
   it('should continue to add 10 points for each level reached after uplevel', () => {
     const game = new Game();
+
     game.score = 100;
     game.level = 1;
     game.showLevelUp = () => {};
@@ -187,6 +212,7 @@ describe('Game', () => {
 
   it('should not gain points for lateral motion', () => {
     const game = new Game();
+
     game.score = 0;
 
     game.controlFrog(39, 550, 650);
@@ -198,6 +224,7 @@ describe('Game', () => {
 
   it('should not gain points for backwards motion', () => {
     const game = new Game();
+
     game.score = 0;
 
     game.controlFrog(40, 550, 650);
@@ -206,6 +233,7 @@ describe('Game', () => {
 
   it('should not gain points for forword progress that has been previously reached', () => {
     const game = new Game();
+
     game.score = 0;
     game.updateScoreDisplay = () => {};
 
@@ -221,6 +249,7 @@ describe('Game', () => {
 
   it('increases velocity of obstacles upon uplevel', () => {
     const game = new Game();
+
     game.showLevelUp = () => {};
     game.updateLevelDisplay = () => {};
 

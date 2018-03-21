@@ -37,6 +37,7 @@ describe('Obstacle', () => {
 
   it('restarts on the left side of canvas when it reaches the right boundary', () => {
     const obstacle = new Obstacle(549, 50, 1);
+
     obstacle.width = 50;
 
     obstacle.moveObstacles();
@@ -47,6 +48,7 @@ describe('Obstacle', () => {
 
   it('restarts on the right side of canvas when it exits the left boundary', () => {
     const obstacle = new Obstacle(10, 50, -1);
+
     obstacle.width = 50
     obstacle.x = 1 - obstacle.width;
 
@@ -57,6 +59,7 @@ describe('Obstacle', () => {
 
   it('can increase its velocity', () => {
     const obstacle = new Obstacle();
+    
     obstacle.velocity = 3;
 
     obstacle.increaseSpeed();
