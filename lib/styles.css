@@ -94,7 +94,24 @@ header {
 }
 
 .game-over {
-  
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 64px;
+  display: block;
+  margin: 0 auto;
+  background-color: black;
+  height: 760px;
+}
+
+.game-over .game-over-text {
+  font-size: 76px;
+  text-shadow: 4px 4px 2px green;
+  padding-top: 200px;
+}
+
+.game-over .final-score {
+  font-size: 30px;
 }
 
 .game-stats {
