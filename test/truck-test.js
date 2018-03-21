@@ -1,14 +1,14 @@
 const assert = require('chai').assert;
 const Truck = require('../lib/Truck.js');
 
-describe('Truck', function() {
-  it('should instantiate a new Truck', function() {
+describe('Truck', () => {
+  it('should instantiate a new Truck', () => {
     var truck = new Truck();
 
     assert.isObject(truck);
   });
 
-  it('takes x, y, and velocity as parameters', function() {
+  it('takes x, y, and velocity as parameters', () => {
     var truck = new Truck(1, 2, 3);
 
     assert.equal(truck.x, 1);
@@ -16,20 +16,20 @@ describe('Truck', function() {
     assert.equal(truck.velocity, 3);
   })
 
-  it('inherits height from the Obstacle class', function() {
+  it('inherits height from the Obstacle class', () => {
     var truck = new Truck();
 
     assert.equal(truck.height, 50);
   });
 
-  it('inherits functions from the Obstacle class', function() {
+  it('inherits functions from the Obstacle class', () => {
     var truck = new Truck();
 
     truck.moveObstacles();
     truck.increaseSpeed();
   });
 
-  it('has a default type and width', function() {
+  it('has a default type and width', () => {
     var truck = new Truck();
 
     assert.equal(truck.type, 'truck');
