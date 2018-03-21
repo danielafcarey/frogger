@@ -32,6 +32,7 @@ describe('Frog', () => {
 
   it('moves up when the moveFrogUp function is called', () => {
     const frog = new Frog();
+
     frog.y = 500;
 
     frog.moveFrogUp();
@@ -42,6 +43,7 @@ describe('Frog', () => {
 
   it('moves right when the moveFrogRight function is called', () => {
     const frog = new Frog();
+
     frog.x = 100;
 
     frog.moveFrogRight();
@@ -52,6 +54,7 @@ describe('Frog', () => {
 
   it('moves left when the moveFrogLeft function is called', () => {
     const frog = new Frog();
+
     frog.x = 100;
 
     frog.moveFrogLeft();
@@ -62,6 +65,7 @@ describe('Frog', () => {
 
   it('moves down when the moveFrogDown function is called', () => {
     const frog = new Frog();
+
     frog.y = 500;
 
     frog.moveFrogDown();
@@ -71,6 +75,7 @@ describe('Frog', () => {
 
   it('should not be able to move up if it is at the top of the screen', () => {
     const frog = new Frog();
+
     frog.y = 0;
 
     frog.moveFrogUp();
@@ -80,6 +85,7 @@ describe('Frog', () => {
 
   it('should not be able to move left if it is on the left side of the screen', () => {
     const frog = new Frog();
+
     frog.x = 0;
 
     frog.moveFrogLeft();
@@ -89,6 +95,7 @@ describe('Frog', () => {
 
   it('should not be able to move down if it is on the bottom of the screen', () => {
     const frog = new Frog();
+
     frog.y = 550;
 
     frog.moveFrogDown(600);
@@ -98,6 +105,7 @@ describe('Frog', () => {
 
   it('should not be able to move right if it is on the right side of the screen', () => {
     const frog = new Frog();
+    
     frog.x = 500;
 
     frog.moveFrogRight(550);
