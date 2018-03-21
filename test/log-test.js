@@ -26,7 +26,6 @@ describe('Log', () => {
     const log = new Log();
 
     log.moveObstacles();
-    log.increaseSpeed();
   });
 
   it('has a default type and width', () => {
