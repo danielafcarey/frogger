@@ -4,13 +4,13 @@ const Frog = require('../lib/Frog.js');
 describe('Frog', () => {
 
   it('should instantiate a new frog', () => {
-    var frog = new Frog();
+    const frog = new Frog();
 
     assert.isObject(frog);
   });
 
   it('should have a width of 50 and a height of 50', () => {
-    var frog = new Frog();
+    const frog = new Frog();
 
     assert.equal(frog.width, 50);
     assert.equal(frog.height, 50);
@@ -18,20 +18,20 @@ describe('Frog', () => {
 
   
   it('should start at coordinates (250, 600)', () => {
-    var frog = new Frog();
+    const frog = new Frog();
 
     assert.equal(frog.x, 250);
     assert.equal(frog.y, 600);
   });
 
   it('should be able to draw the frog', () => {
-    var frog = new Frog();
+    const frog = new Frog();
 
     assert.isFunction(frog.drawFrog);
   });
 
   it('moves up when the moveFrogUp function is called', () => {
-    var frog = new Frog();
+    const frog = new Frog();
     frog.y = 500;
 
     frog.moveFrogUp();
@@ -41,7 +41,7 @@ describe('Frog', () => {
 
 
   it('moves right when the moveFrogRight function is called', () => {
-    var frog = new Frog();
+    const frog = new Frog();
     frog.x = 100;
 
     frog.moveFrogRight();
@@ -51,7 +51,7 @@ describe('Frog', () => {
 
 
   it('moves left when the moveFrogLeft function is called', () => {
-    var frog = new Frog();
+    const frog = new Frog();
     frog.x = 100;
 
     frog.moveFrogLeft();
@@ -61,7 +61,7 @@ describe('Frog', () => {
 
 
   it('moves down when the moveFrogDown function is called', () => {
-    var frog = new Frog();
+    const frog = new Frog();
     frog.y = 500;
 
     frog.moveFrogDown();
@@ -70,7 +70,7 @@ describe('Frog', () => {
   })
 
   it('should not be able to move up if it is at the top of the screen', () => {
-    var frog = new Frog();
+    const frog = new Frog();
     frog.y = 0;
 
     frog.moveFrogUp();
@@ -79,7 +79,7 @@ describe('Frog', () => {
   });
 
   it('should not be able to move left if it is on the left side of the screen', () => {
-    var frog = new Frog();
+    const frog = new Frog();
     frog.x = 0;
 
     frog.moveFrogLeft();
@@ -88,25 +88,25 @@ describe('Frog', () => {
   });
 
   it('should not be able to move down if it is on the bottom of the screen', () => {
-    var frog = new Frog();
-    frog.y = 600;
+    const frog = new Frog();
+    frog.y = 550;
 
-    frog.moveFrogDown(550, 650);
+    frog.moveFrogDown(600);
 
     assert.equal(frog.y, 600) 
   });
 
   it('should not be able to move right if it is on the right side of the screen', () => {
-    var frog = new Frog();
+    const frog = new Frog();
     frog.x = 500;
 
-    frog.moveFrogRight(550, 650);
+    frog.moveFrogRight(550);
 
     assert.equal(frog.x, 500) 
   });
 
   it('should start with three lives', () => {
-    var frog = new Frog();
+    const frog = new Frog();
 
     assert.equal(frog.lives, 3)
   })
