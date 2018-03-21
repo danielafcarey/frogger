@@ -111,29 +111,4 @@ describe('Frog', function() {
     assert.equal(frog.lives, 3)
   })
 
-  it.skip('should gain ten points for forward progress', function() {
-    var frog = new Frog();
-    frog.y = 500;
-    frog.score = 30;
-
-    frog.moveFrogUp();
-
-    assert.equal(frog.score, 40)
-  });
-
-  it.skip('should not gain points for lateral motion', function() {
-    var frog = new Frog();
-
-  });
-
-  it.skip('should not gain points for backwards motion', function() {
-    var frog = new Frog();
-
-  })
-
-  it.skip('should not gain points for forword progress that has been previously reached', function() {
-    var frog = new Frog();
-
-  })
-
 })
