@@ -57,16 +57,6 @@ describe('Obstacle', () => {
     assert.equal(obstacle.x, 550);
   });
 
-  it('can increase its velocity', () => {
-    const obstacle = new Obstacle();
-    
-    obstacle.velocity = 3;
-
-    obstacle.increaseSpeed();
-
-    assert.equal(obstacle.velocity, 3.5);
-  });
-
 })
 
 

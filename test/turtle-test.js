@@ -26,7 +26,6 @@ describe('Turtle', () => {
     const turtle = new Turtle();
 
     turtle.moveObstacles();
-    turtle.increaseSpeed();
   });
 
   it('has a default type and width', () => {

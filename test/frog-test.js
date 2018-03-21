@@ -95,10 +95,9 @@ describe('Frog', () => {
 
   it('should not be able to move down if it is on the bottom of the screen', () => {
     const frog = new Frog();
+    frog.y = 600;
 
-    frog.y = 550;
-
-    frog.moveFrogDown(600);
+    frog.moveFrogDown(650);
 
     assert.equal(frog.y, 600) 
   });

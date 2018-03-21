@@ -26,7 +26,6 @@ describe('Truck', () => {
     const truck = new Truck();
 
     truck.moveObstacles();
-    truck.increaseSpeed();
   });
 
   it('has a default type and width', () => {
