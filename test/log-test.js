@@ -3,13 +3,13 @@ const Log = require('../lib/Log.js');
 
 describe('Log', () => {
   it('should instantiate a new Log', () => {
-    var log = new Log();
+    const log = new Log();
 
     assert.isObject(log);
   });
 
   it('takes x, y, and velocity as parameters', () => {
-    var log = new Log(1, 2, 3);
+    const log = new Log(1, 2, 3);
 
     assert.equal(log.x, 1);
     assert.equal(log.y, 2);
@@ -17,20 +17,20 @@ describe('Log', () => {
   })
 
   it('inherits height from the Obstacle class', () => {
-    var log = new Log();
+    const log = new Log();
 
     assert.equal(log.height, 50);
   });
 
   it('inherits functions from the Obstacle class', () => {
-    var log = new Log();
+    const log = new Log();
 
     log.moveObstacles();
     log.increaseSpeed();
   });
 
   it('has a default type and width', () => {
-    var log = new Log();
+    const log = new Log();
 
     assert.equal(log.type, 'log');
     assert.equal(log.width, 150);

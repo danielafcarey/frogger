@@ -3,25 +3,25 @@ const Obstacle = require('../lib/Obstacle.js');
 
 describe('Obstacle', () => {
   it('should instantiate a new Obstacle', () => {
-    var obstacle = new Obstacle();
+    const obstacle = new Obstacle();
     
     assert.isObject(obstacle);
   });
 
   it('has a default height', () => {
-    var obstacle = new Obstacle();
+    const obstacle = new Obstacle();
 
     assert.equal(obstacle.height, 50);
   });
 
   it('should be able to draw the obstacle on the canvas', () => {
-    var obstacle = new Obstacle();
+    const obstacle = new Obstacle();
 
     assert.isFunction(obstacle.drawSelf)
   })
 
   it('can move the Obstacle right or left along the x-axis', () => {
-    var obstacle = new Obstacle(10, 50, 1);
+    const obstacle = new Obstacle(10, 50, 1);
 
     obstacle.moveObstacles();
 
@@ -36,7 +36,7 @@ describe('Obstacle', () => {
   });
 
   it('restarts on the left side of canvas when it reaches the right boundary', () => {
-    var obstacle = new Obstacle(549, 50, 1);
+    const obstacle = new Obstacle(549, 50, 1);
     obstacle.width = 50;
 
     obstacle.moveObstacles();
@@ -46,7 +46,7 @@ describe('Obstacle', () => {
 
 
   it('restarts on the right side of canvas when it exits the left boundary', () => {
-    var obstacle = new Obstacle(10, 50, -1);
+    const obstacle = new Obstacle(10, 50, -1);
     obstacle.width = 50
     obstacle.x = 1 - obstacle.width;
 
@@ -56,7 +56,7 @@ describe('Obstacle', () => {
   });
 
   it('can increase its velocity', () => {
-    var obstacle = new Obstacle();
+    const obstacle = new Obstacle();
     obstacle.velocity = 3;
 
     obstacle.increaseSpeed();
