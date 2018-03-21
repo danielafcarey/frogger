@@ -18,9 +18,8 @@ header {
   z-index: -1;
   right: 0;
   left: 0;
-  display: grid;
-  grid-template-rows: 50px 250px 50px 250px 50px 50px; 
   width: 550px;
+  height: 650px;
   margin: auto;
 }
 
