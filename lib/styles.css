@@ -74,7 +74,7 @@ button:focus {
 .death {
   top: 270px;
   display: block;
-  background-image: url(../assets/death.png);
+  background-image: url(./assets/death.png);
 }
 
 .level-up {
