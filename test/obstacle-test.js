@@ -2,15 +2,10 @@ const assert = require('chai').assert;
 const Obstacle = require('../lib/Obstacle.js');
 
 describe('Obstacle', () => {
-  it('should instantiate a new Obstacle', () => {
+  it('should instantiate a new Obstacle with all default properties', () => {
     const obstacle = new Obstacle();
     
     assert.isObject(obstacle);
-  });
-
-  it('has a default height', () => {
-    const obstacle = new Obstacle();
-
     assert.equal(obstacle.height, 50);
   });
 
