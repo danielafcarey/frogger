@@ -2,10 +2,12 @@ const assert = require('chai').assert;
 const Turtle = require('../lib/Turtle.js');
 
 describe('Turtle', () => {
-  it('should instantiate a new Turtle', () => {
+  it('should instantiate a new Turtle with all default properties', () => {
     const turtle = new Turtle();
 
     assert.isObject(turtle);
+    assert.equal(turtle.type, 'turtle');
+    assert.equal(turtle.width, 100);
   });
 
   it('takes x, y, and velocity as parameters', () => {
@@ -15,26 +17,5 @@ describe('Turtle', () => {
     assert.equal(turtle.y, 2);
     assert.equal(turtle.velocity, 3);
   })
-
-  it('inherits height from the Obstacle class', () => {
-    const turtle = new Turtle();
-
-    assert.equal(turtle.height, 50);
-  });
-
-  it('inherits functions from the Obstacle class', () => {
-    const turtle = new Turtle();
-
-    turtle.moveObstacles();
-  });
-
-  it('has a default type and width', () => {
-    const turtle = new Turtle();
-
-    assert.equal(turtle.type, 'turtle');
-    assert.equal(turtle.width, 100);
-  })
-
-
 
 })

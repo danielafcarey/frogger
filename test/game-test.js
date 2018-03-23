@@ -2,28 +2,13 @@ const assert = require('chai').assert;
 const Game = require('../lib/Game.js');
 
 describe('Game', () => {
-  it('should instantiate a new game', () => {
+  it('should instantiate a new game with all default properties', () => {
     const game = new Game();
 
     assert.isObject(game);
-  });
-
-  it('should have a default score and level', () => {
-    const game = new Game();
-
     assert.equal(game.score, 0);
     assert.equal(game.level, 1);
-  });
-
-  it('should have default lane assignments', () => {
-    const game = new Game();
-
-    assert.deepEqual(game.lanes[0], {height: 550, reached: false, velocity: 2})
-  });
-
-  it('should create an array of obstacles', () => {
-    const game = new Game();
-
+    assert.deepEqual(game.lanes[0], {height: 550, reached: false, velocity: 2});
     assert.deepEqual(game.obstaclesArray[0], {
       "height": 50,
       "type": "car2",

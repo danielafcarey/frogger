@@ -2,10 +2,12 @@ const assert = require('chai').assert;
 const Log = require('../lib/Log.js');
 
 describe('Log', () => {
-  it('should instantiate a new Log', () => {
+  it('should instantiate a new Log with all default properties', () => {
     const log = new Log();
 
     assert.isObject(log);
+    assert.equal(log.type, 'log');
+    assert.equal(log.width, 150);
   });
 
   it('takes x, y, and velocity as parameters', () => {
@@ -15,26 +17,5 @@ describe('Log', () => {
     assert.equal(log.y, 2);
     assert.equal(log.velocity, 3);
   })
-
-  it('inherits height from the Obstacle class', () => {
-    const log = new Log();
-
-    assert.equal(log.height, 50);
-  });
-
-  it('inherits functions from the Obstacle class', () => {
-    const log = new Log();
-
-    log.moveObstacles();
-  });
-
-  it('has a default type and width', () => {
-    const log = new Log();
-
-    assert.equal(log.type, 'log');
-    assert.equal(log.width, 150);
-  })
-
-
 
 })

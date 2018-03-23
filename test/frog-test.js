@@ -3,23 +3,12 @@ const Frog = require('../lib/Frog.js');
 
 describe('Frog', () => {
 
-  it('should instantiate a new frog', () => {
+  it('should instantiate a new frog with all default properties', () => {
     const frog = new Frog();
 
     assert.isObject(frog);
-  });
-
-  it('should have a width of 50 and a height of 50', () => {
-    const frog = new Frog();
-
     assert.equal(frog.width, 50);
     assert.equal(frog.height, 50);
-  });
-
-  
-  it('should start at coordinates (250, 600)', () => {
-    const frog = new Frog();
-
     assert.equal(frog.x, 250);
     assert.equal(frog.y, 600);
   });
