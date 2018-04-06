@@ -1,15 +1,15 @@
-#Game Time - Frogger
+# Game Time - Frogger
 
-##Project Requirements
+## Project Requirements
 Learn object oriented programming (OOP) principles by building a game that is playable in the browser.
 
-###Goals
+### Goals
 * Use OOP to drive the design of the game and the code
 * Separate business-logic code from view-related code
 * Create a robust test suite that thoroughly tests all functionality of a client-side application
 
 
-###Playability Features
+### Playability Features
 We want your game to be full-featured and playable — not just a proof of concept of the gameplay and rendering features.
 
 To this end, make sure to include sufficient UX to allow the user to fully interact with the game. This would include:
@@ -20,14 +20,14 @@ To this end, make sure to include sufficient UX to allow the user to fully inter
 * Include a clean UI surrounding the actual game interface itself, including thorough instructions
 * Create multiple rounds of difficulty (consider increasing factors such as game speed, randomness of starting setup, etc)
 
-###Code organization
+### Code organization
 Your game should make use of at least two classes; the exact number will depend on which game you choose and your design choices.
 
 You should use inheritance with your classes.
 
 Each class should have its own file with the filename capitalized. The class should be capitalized as well. Only code that is a part of this class should be in this file.
 
-###User Interface
+### User Interface
 The UI of the game should be clean, intuitive, and informative:
 
 * instructions to begin and play the game
@@ -36,7 +36,7 @@ The UI of the game should be clean, intuitive, and informative:
 allow the user to start a new game
 * If your game uses the arrow keys, you should prevent the page from scrolling when the arrow keys are pressed.
 
-###Testing
+### Testing
 Each javascript file in your project should have its own test file e.g. if you have a MasterChief.js class file, all the tests for that class should be located in MasterChief-test.js
 
 The test suite will test all functionality of the game (excepting anything touching the DOM):

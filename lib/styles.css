@@ -13,7 +13,7 @@ header {
 }
 
 .start-screen {
-  top: 57px;
+  top: 73px;
   display: block;
   width: 550px;
   height: 612px;
@@ -89,7 +89,7 @@ button:focus {
 }
 
 .game-over {
-  top: 64px;
+  top: 70px;
   display: block;
   background-color: black;
   height: 760px;
