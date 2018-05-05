@@ -15,7 +15,7 @@ Frogger is a recreation of the classic video game. The goal for the project was 
 ![Start Screen](./assets/startscreen.png)
 
 ##### Main Screen
-![Main Screen](./public/levelup.png)
+![Main Screen](./assets/levelup.png)
 
 
 ---
