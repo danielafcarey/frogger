@@ -22,6 +22,6 @@ Frogger is a recreation of the classic video game. The goal for the project was 
 
 ## Contributors
 
-[Eric Jungbluth](https://github.com/EricMellow) & Daniela Carey
+[Eric Jungbluth](https://github.com/EricMellow) & [Daniela Carey](https://github.com/danielafcarey)
 
 _(**Turing School of Software & Design Front-end Engineering project - Mod 2:** first real interactions with OOP, HTML5 Canvas, ES6, and TDD.)_
